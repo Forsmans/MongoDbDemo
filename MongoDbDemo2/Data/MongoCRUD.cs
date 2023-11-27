@@ -33,5 +33,15 @@ namespace MongoDbDemo2.Data
             return collection.Find(_ => true).ToList();
 
         }
+        public T LoadRecordsByID<T>(string table, Guid id)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("Id", id);
+
+            return collection.Find(filter).First();
+        }
+
+        //U
+
     }
 }

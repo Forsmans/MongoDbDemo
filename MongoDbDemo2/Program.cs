@@ -23,16 +23,21 @@ namespace MongoDbDemo2
             //db.InsertRecord("Users", person);
 
             //R
-            var records = db.LoadRecords<PersonModel>("Users");
+            //All
+            //var records = db.LoadRecords<PersonModel>("Users");
 
-            foreach(var record in records)
-            {
-                Console.WriteLine(record.FirstName);
-                if(record.Adress != null)
-                {
-                    Console.WriteLine(record.Adress.Street);
-                }
-            }
+            //foreach (var record in records)
+            //{
+            //    Console.WriteLine(record.FirstName);
+            //    if (record.Adress != null)
+            //    {
+            //        Console.WriteLine(record.Adress.Street);
+            //    }
+            //}
+
+            //One
+            var selectedPerson = db.LoadRecordsByID<PersonModel>("Users", new Guid("9524ec75-c513-4220-bc05-10274e6983cd"));
+            Console.WriteLine(selectedPerson.FirstName);
         }
     }
 }
