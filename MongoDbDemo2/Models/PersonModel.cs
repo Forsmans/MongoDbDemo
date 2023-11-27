@@ -16,5 +16,9 @@ namespace MongoDbDemo2.Models
         public string LastName { get; set; }
 
         public AdressModel Adress { get; set; }
+
+        [BsonElement("dob")]//Sets alias in db to dob
+        public DateTime DateOfBirth { get; set; }
+
     }
 }
